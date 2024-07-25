@@ -11,7 +11,7 @@ Validator::Validator(int argc, std::string input_currency, std::string output_cu
 
 bool Validator::is_input_currency_valid()
 {
-  auto isValid = this->input_currency == "PLN";
+  auto isValid = this->input_currency == "PLN" || this -> input_currency == "USD";
 
   if (!isValid)
   {
@@ -23,7 +23,7 @@ bool Validator::is_input_currency_valid()
 
 bool Validator::is_output_currency_valid()
 {
-  auto isValid = this->output_currency == "USD";
+  auto isValid = this->output_currency == "USD" || this -> output_currency =="PLN";
 
   if (!isValid)
   {
@@ -41,6 +41,15 @@ bool Validator::is_argc_valid()
   {
     std::cerr << "Invalid number of arguments" << std::endl;
   }
-
   return isValid;
+}
+bool Validator::are_curriencies_diffrent()
+{
+    auto isValid = this -> input_currency != this -> output_currency;
+
+    if(!isValid)
+    {
+      std::cerr << "Curriencies must be diffrent" << std::endl;
+    }
+    return isValid;
 }
