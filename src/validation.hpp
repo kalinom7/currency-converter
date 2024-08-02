@@ -14,4 +14,5 @@ public:
   bool is_input_currency_valid();
   bool is_output_currency_valid();
   bool is_argc_valid();
+  bool are_curriencies_diffrent();
 };

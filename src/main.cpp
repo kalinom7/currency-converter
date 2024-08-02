@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 
   Validator validator = Validator(argc, argv[2], argv[3]);
 
-  if (!validator.is_argc_valid() || !validator.is_input_currency_valid() || !validator.is_output_currency_valid())
+  if (!validator.is_argc_valid() || !validator.is_input_currency_valid() || !validator.is_output_currency_valid() || !validator.are_curriencies_diffrent())
   {
     return -1;
   }

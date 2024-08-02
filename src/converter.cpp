@@ -9,7 +9,14 @@ Converter::Converter(double input_amount, std::string input_currency, std::strin
 
 double Converter::convert()
 {
-  return this->input_amount / 3.8;
+  if(this -> input_currency == "PLN" && this -> output_currency == "USD")
+  {
+     return this->input_amount / 3.8;
+  } 
+  else if( this -> input_currency == "USD" && this -> output_currency == "PLN")
+  {
+    return this -> input_amount * 3.8;
+  }
 }
 
 double Converter::get_input_amount()
