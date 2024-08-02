@@ -39,7 +39,8 @@ bool Validator::is_argc_valid() {
   }
   return isValid;
 }
-bool Validator::are_curriencies_diffrent() {
+
+bool Validator::are_currencies_different() {
   auto isValid = this->input_currency != this->output_currency;
 
   if (!isValid) {
