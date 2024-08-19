@@ -1,7 +1,10 @@
 #include "validation.hpp"
 
 #include <iostream>
+#include <map>
 #include <string>
+
+#include "exchange_rates.hpp"
 
 Validator::Validator(int argc, std::string input_currency,
                      std::string output_currency) {
@@ -11,7 +14,7 @@ Validator::Validator(int argc, std::string input_currency,
 }
 
 bool Validator::is_input_currency_valid() {
-  auto isValid = this->input_currency == "PLN" || this->input_currency == "USD";
+  auto isValid = true;
 
   if (!isValid) {
     std::cerr << "Input currency is invalid" << std::endl;
