@@ -2,6 +2,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <vector>
 
 class ExchangeRates {
  private:
@@ -11,12 +12,7 @@ class ExchangeRates {
 
  public:
   ExchangeRates() {}
-  ExchangeRates(const ExchangeRates& left) {
-    std::cout << "KOPIA" << std::endl;
-  }
-
-  void set_rate() { rates["PLN"] = {{"USD", 5}}; }
-
+  
   double get_rate(std::string input_currency, std::string output_currency);
 
   std::vector<std::string> get_all_currencies() {
@@ -26,14 +22,5 @@ class ExchangeRates {
     }
 
     return vec;
-  }
-
-  void print() {
-    for (const auto& pair : this->rates) {
-      std::cout << pair.first << std::endl;
-      for (const auto& pair2 : pair.second) {
-        std::cout << pair2.first << " " << pair2.second << std::endl;
-      }
-    }
   }
 };

@@ -17,11 +17,7 @@ int main(int argc, char *argv[]) {
   Converter converter =
       Converter(exchange_rates, std::stod(argv[1]), argv[2], argv[3]);
 
-  exchange_rates.set_rate();
-  exchange_rates.print();
-  std::cout << "\n\n";
-  converter.exchange_rates.print();
-
+ 
   std::cout << converter.get_input_amount() << " in " << argv[2] << " is "
             << converter.convert() << " in " << argv[3] << std::endl;
 
