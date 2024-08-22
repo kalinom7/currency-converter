@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
   ExchangeRates exchange_rates = ExchangeRates();
 
-  Validator validator = Validator(argc, argv[2], argv[3]);
+  Validator validator = Validator(exchange_rates, argc, argv[2], argv[3]);
 
   if (!validator.is_argc_valid() || !validator.is_input_currency_valid() ||
       !validator.is_output_currency_valid() ||

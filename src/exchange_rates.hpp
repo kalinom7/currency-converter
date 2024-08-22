@@ -14,13 +14,7 @@ class ExchangeRates {
   ExchangeRates() {}
   
   double get_rate(std::string input_currency, std::string output_currency);
-
-  std::vector<std::string> get_all_currencies() {
-    std::vector<std::string> vec;
-    for (const auto& pair : this->rates) {
-      vec.push_back(pair.first);
-    }
-
-    return vec;
-  }
+  bool check_for_input_currency(std::string input_currency);
+  bool check_for_output_currency(std::string input_currency, std::string output_currency);
+  
 };

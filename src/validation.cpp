@@ -6,15 +6,13 @@
 
 #include "exchange_rates.hpp"
 
-Validator::Validator(int argc, std::string input_currency,
-                     std::string output_currency) {
-  this->argument_counter = argc;
-  this->input_currency = input_currency;
-  this->output_currency = output_currency;
-}
+Validator::Validator(ExchangeRates &exchange_rates, int argument_counter, std::string input_currency,
+                     std::string output_currency) : exchange_rates(exchange_rates), argument_counter(argument_counter) , input_currency(input_currency) , output_currency(output_currency){}
+
+
 
 bool Validator::is_input_currency_valid() {
-  auto isValid = true;
+  auto isValid = exchange_rates.check_for_input_currency(input_currency);
 
   if (!isValid) {
     std::cerr << "Input currency is invalid" << std::endl;
@@ -24,8 +22,8 @@ bool Validator::is_input_currency_valid() {
 }
 
 bool Validator::is_output_currency_valid() {
-  auto isValid =
-      this->output_currency == "USD" || this->output_currency == "PLN";
+  auto isValid = exchange_rates.check_for_output_currency(input_currency,output_currency);
+     
 
   if (!isValid) {
     std::cerr << "Output currency is invalid" << std::endl;
