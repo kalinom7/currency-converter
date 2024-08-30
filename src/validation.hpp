@@ -11,11 +11,11 @@ class Validator  {
 
  public:
   ExchangeRates &exchange_rates;
-  Validator(ExchangeRates &exchange_rates, int  argc, std::string input_currency, std::string output_currency);
-  bool is_input_currency_valid();
-  bool is_output_currency_valid();
-  bool is_argc_valid();
-  bool are_currencies_different();
+  Validator(ExchangeRates &exchange_rates);
+  bool is_input_currency_valid(std::string input_currency);
+  bool is_output_currency_valid(std::string input_currency, std::string output_currency);
+  bool is_argc_valid(int argc);
+  
   
 
 };
