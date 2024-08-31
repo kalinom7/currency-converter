@@ -5,6 +5,12 @@
 
 int main(int argc, char *argv[]) {
   ExchangeRates exchange_rates = ExchangeRates();
+  auto load_success = exchange_rates.load("data.csv");
+  if (!load_success) {
+    std::cout << "Failed to load exchange rates" << std::endl;
+    return -1;
+  }
+  exchange_rates.print();
 
   Validator validator = Validator(exchange_rates);
 

@@ -6,15 +6,13 @@
 
 class ExchangeRates {
  private:
-  std::map<std::string, std::map<std::string, double>> rates = {
-      {"PLN", {{"USD", 0.25}, {"CHF", 0.23}}},
-      {"USD", {{"PLN", 3.8}, {"CHF", 0.86}}},
-      {"CHF", {{"PLN", 4.57}, {"USD", 1.18}}},
-  };
+  std::map<std::string, std::map<std::string, double>> rates = {};
 
  public:
   ExchangeRates() {}
 
+  bool load(std::string filename);
+  void print();
   double get_rate(std::string input_currency, std::string output_currency);
   bool check_for_input_currency(std::string input_currency);
   bool check_for_output_currency(std::string input_currency,
